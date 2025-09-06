@@ -246,7 +246,7 @@
             <button class="tab-button" onclick="showTab('calculators')">🧮 Calculators</button>
         </div>
 
-        <!-- Expense Tracker Tab -->
+        
         <div id="tracker" class="tab-content active">
             <h2>Daily Expense Tracker</h2>
             <div class="form-grid">
@@ -285,7 +285,7 @@
             </div>
         </div>
 
-        <!-- Budget Planner Tab -->
+        
         <div id="budget" class="tab-content">
             <h2>Monthly Budget Planner</h2>
             <div class="form-grid">
@@ -344,7 +344,7 @@
             </div>
         </div>
 
-        <!-- Goal Setting Tab -->
+        
         <div id="goals" class="tab-content">
             <h2>Financial Goal Setting</h2>
             <div class="form-grid">
@@ -372,11 +372,10 @@
             </div>
         </div>
 
-        <!-- Calculators Tab -->
+       
         <div id="calculators" class="tab-content">
             <h2>Financial Calculators</h2>
             
-            <!-- SIP Calculator -->
             <div class="calculator-section">
                 <h3>📈 SIP Calculator</h3>
                 <div class="form-grid">
@@ -397,7 +396,7 @@
                 <div class="result-box" id="sip-result"></div>
             </div>
 
-            <!-- Loan Calculator -->
+        
             <div class="calculator-section">
                 <h3>🏠 Loan EMI Calculator</h3>
                 <div class="form-grid">
@@ -418,7 +417,6 @@
                 <div class="result-box" id="loan-result"></div>
             </div>
 
-            <!-- Retirement Calculator -->
             <div class="calculator-section">
                 <h3>🏖️ Retirement Calculator</h3>
                 <div class="form-grid">
@@ -446,14 +444,14 @@
     </div>
 
     <script>
-        // Data storage
+       
         let expenses = [];
         let goals = [];
 
-        // Set today's date as default
+        
         document.getElementById('expense-date').valueAsDate = new Date();
 
-        // Tab switching
+    
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
@@ -462,7 +460,7 @@
             event.target.classList.add('active');
         }
 
-        // Expense Tracker Functions
+        
         function addExpense() {
             const category = document.getElementById('expense-category').value;
             const amount = parseFloat(document.getElementById('expense-amount').value);
@@ -527,7 +525,7 @@
             document.getElementById('expense-date').valueAsDate = new Date();
         }
 
-        // Budget Functions
+        
         function updateBudget() {
             const income = parseFloat(document.getElementById('monthly-income').value) || 0;
             const housing = parseFloat(document.getElementById('housing-budget').value) || 0;
@@ -546,7 +544,7 @@
             document.getElementById('savings-rate').textContent = `${savingsRate}%`;
         }
 
-        // Goal Setting Functions
+       
         function addGoal() {
             const name = document.getElementById('goal-name').value;
             const target = parseFloat(document.getElementById('goal-target').value);
@@ -603,7 +601,6 @@
             document.getElementById('goal-monthly').value = '';
         }
 
-        // Calculator Functions
         function calculateSIP() {
             const monthly = parseFloat(document.getElementById('sip-amount').value);
             const rate = parseFloat(document.getElementById('sip-rate').value) / 100 / 12;
@@ -662,12 +659,11 @@
             const yearsToRetirement = retirementAge - currentAge;
             const annualExpenses = monthlyExpenses * 12;
             
-            // Assuming 25 years post retirement and 3% inflation
             const inflationRate = 0.03;
             const futureAnnualExpenses = annualExpenses * (1 + inflationRate) ** yearsToRetirement;
             const corpusNeeded = futureAnnualExpenses * 25; // 25x annual expenses
             
-            // Monthly SIP required
+            
             const monthlyRate = rate / 12;
             const months = yearsToRetirement * 12;
             const monthlySIP = (corpusNeeded * monthlyRate) / (((1 + monthlyRate) ** months - 1) * (1 + monthlyRate));
@@ -681,7 +677,7 @@
             `;
         }
 
-        // Initialize
+    
         updateExpenseSummary();
         updateBudget();
     </script>
