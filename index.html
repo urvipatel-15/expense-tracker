@@ -100,6 +100,7 @@
             border-color: #667eea;
         }
 
+        /* Enhanced button styles with more specific margin */
         .btn {
             padding: 12px 24px;
             background: linear-gradient(45deg, #667eea, #764ba2);
@@ -108,12 +109,19 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 500;
-            margin-bottom: 30px;
+            margin-bottom: 30px !important; /* Added !important for specificity */
+            margin-top: 10px;
+            display: block; /* Ensure it's a block element for proper margin behavior */
             transition: transform 0.2s ease;
         }
 
         .btn:hover {
             transform: translateY(-2px);
+        }
+
+        /* Alternative approach - add spacing after buttons */
+        .btn + * {
+            margin-top: 20px;
         }
 
         .summary-cards {
@@ -218,6 +226,11 @@
             border-left: 4px solid #667eea;
         }
 
+        /* Additional spacing utilities */
+        .spacing-fix {
+            margin-bottom: 40px;
+        }
+
         @media (max-width: 768px) {
             .form-grid {
                 grid-template-columns: 1fr;
@@ -264,7 +277,7 @@
                     <input type="date" id="expense-date">
                 </div>
             </div>
-            <button class="btn" onclick="addExpense()">Add Expense</button>
+            <button class="btn spacing-fix" onclick="addExpense()">Add Expense</button>
 
             <div class="summary-cards">
                 <div class="card">
@@ -366,7 +379,7 @@
                     <input type="number" id="goal-monthly" placeholder="₹ 0">
                 </div>
             </div>
-            <button class="btn" onclick="addGoal()">Add Goal</button>
+            <button class="btn spacing-fix" onclick="addGoal()">Add Goal</button>
 
             <div class="goal-list" id="goal-list">
                 <h3>Your Financial Goals</h3>
